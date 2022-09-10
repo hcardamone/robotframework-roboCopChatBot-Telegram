@@ -1,5 +1,9 @@
 robotframework
+robotframework-faker
+robotframework-screencaplibrary
+robotframework-seleniumlibrary
 robotframework-jsonlibrary
 robotframework-requests
 robotframework-tidy
-
+robotframework-robocop
+jsondiff

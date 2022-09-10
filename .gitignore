@@ -16,9 +16,10 @@ htmlcov
 output.xml
 robot_variables.py
 *.private
-.github
 package-lock.json
 *telegram_variables.py
 *sendmsgpayload.json
 *payload.md
 *info_readme.md
+*.sarif.json
+*robocop.log
