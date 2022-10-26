@@ -1,0 +1,2276 @@
+{
+    "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+    "version": "2.1.0",
+    "runs": [
+        {
+            "tool": {
+                "driver": {
+                    "name": "Robocop",
+                    "semanticVersion": "2.4.0",
+                    "informationUri": "https://robocop.readthedocs.io/",
+                    "rules": [
+                        {
+                            "id": "0201",
+                            "name": "missing-doc-keyword",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#missing-doc-keyword",
+                            "shortDescription": {
+                                "text": "Missing documentation in '{{ name }}' keyword"
+                            },
+                            "fullDescription": {
+                                "text": "\nYou can add documentation to keyword using following syntax::\n\n    Keyword\n        [Documentation]  Keyword documentation\n        Keyword Step\n        Other Step\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "\nYou can add documentation to keyword using following syntax::\n\n    Keyword\n        [Documentation]  Keyword documentation\n        Keyword Step\n        Other Step\n\n",
+                                "markdown": "\nYou can add documentation to keyword using following syntax::\n\n    Keyword\n        [Documentation]  Keyword documentation\n        Keyword Step\n        Other Step\n\n"
+                            }
+                        },
+                        {
+                            "id": "0202",
+                            "name": "missing-doc-test-case",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#missing-doc-test-case",
+                            "shortDescription": {
+                                "text": "Missing documentation in '{{ name }}' test case"
+                            },
+                            "fullDescription": {
+                                "text": "\nYou can add documentation to test case using following syntax::\n\n    Test\n        [Documentation]  Test documentation\n        Keyword Step\n        Other Step\n\nThe rule by default ignores templated test cases but it can be configured with::\n\n    robocop --configure missing-doc-test-case:ignore_templated:False\n\nPossible values are: Yes / 1 / True (default) or No / False / 0.\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "\nYou can add documentation to test case using following syntax::\n\n    Test\n        [Documentation]  Test documentation\n        Keyword Step\n        Other Step\n\nThe rule by default ignores templated test cases but it can be configured with::\n\n    robocop --configure missing-doc-test-case:ignore_templated:False\n\nPossible values are: Yes / 1 / True (default) or No / False / 0.\n",
+                                "markdown": "\nYou can add documentation to test case using following syntax::\n\n    Test\n        [Documentation]  Test documentation\n        Keyword Step\n        Other Step\n\nThe rule by default ignores templated test cases but it can be configured with::\n\n    robocop --configure missing-doc-test-case:ignore_templated:False\n\nPossible values are: Yes / 1 / True (default) or No / False / 0.\n"
+                            }
+                        },
+                        {
+                            "id": "0203",
+                            "name": "missing-doc-suite",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#missing-doc-suite",
+                            "shortDescription": {
+                                "text": "Missing documentation in suite"
+                            },
+                            "fullDescription": {
+                                "text": "\nYou can add documentation to suite using following syntax::\n\n    *** Settings ***\n    Documentation    Suite documentation\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "\nYou can add documentation to suite using following syntax::\n\n    *** Settings ***\n    Documentation    Suite documentation\n\n",
+                                "markdown": "\nYou can add documentation to suite using following syntax::\n\n    *** Settings ***\n    Documentation    Suite documentation\n\n"
+                            }
+                        },
+                        {
+                            "id": "0301",
+                            "name": "not-allowed-char-in-name",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#not-allowed-char-in-name",
+                            "shortDescription": {
+                                "text": "Not allowed character '{{ character }}' found in {{ block_name }} name"
+                            },
+                            "fullDescription": {
+                                "text": "\nReports not allowed pattern found in Test Case or Keyword names. By default it's dot (`.`). You can\nconfigure what patterns are reported by calling::\n\n     robocop --configure not-allowed-char-in-name:pattern:regex_pattern\n\n`regex_pattern` should define regex pattern not allowed in names. For example `[@\\[]` pattern\nreports any occurrence of `@[` characters.\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "\nReports not allowed pattern found in Test Case or Keyword names. By default it's dot (`.`). You can\nconfigure what patterns are reported by calling::\n\n     robocop --configure not-allowed-char-in-name:pattern:regex_pattern\n\n`regex_pattern` should define regex pattern not allowed in names. For example `[@\\[]` pattern\nreports any occurrence of `@[` characters.\n",
+                                "markdown": "\nReports not allowed pattern found in Test Case or Keyword names. By default it's dot (`.`). You can\nconfigure what patterns are reported by calling::\n\n     robocop --configure not-allowed-char-in-name:pattern:regex_pattern\n\n`regex_pattern` should define regex pattern not allowed in names. For example `[@\\[]` pattern\nreports any occurrence of `@[` characters.\n"
+                            }
+                        },
+                        {
+                            "id": "0302",
+                            "name": "wrong-case-in-keyword-name",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#wrong-case-in-keyword-name",
+                            "shortDescription": {
+                                "text": "Keyword name '{{ keyword_name }}' does not follow case convention"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0303",
+                            "name": "keyword-name-is-reserved-word",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#keyword-name-is-reserved-word",
+                            "shortDescription": {
+                                "text": "'{{ keyword_name }}' is a reserved keyword{{ error_msg }}"
+                            },
+                            "fullDescription": {
+                                "text": "\nDo not use reserved names for keyword names. Following names are reserved:\n\n  - IF\n  - ELSE IF\n  - ELSE\n  - FOR\n  - END\n  - WHILE\n  - CONTINUE\n  - RETURN\n  - TRY\n  - EXCEPT\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "\nDo not use reserved names for keyword names. Following names are reserved:\n\n  - IF\n  - ELSE IF\n  - ELSE\n  - FOR\n  - END\n  - WHILE\n  - CONTINUE\n  - RETURN\n  - TRY\n  - EXCEPT\n\n",
+                                "markdown": "\nDo not use reserved names for keyword names. Following names are reserved:\n\n  - IF\n  - ELSE IF\n  - ELSE\n  - FOR\n  - END\n  - WHILE\n  - CONTINUE\n  - RETURN\n  - TRY\n  - EXCEPT\n\n"
+                            }
+                        },
+                        {
+                            "id": "0305",
+                            "name": "underscore-in-keyword-name",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#underscore-in-keyword-name",
+                            "shortDescription": {
+                                "text": "Underscores in keyword name '{{ keyword_name }}' can be replaced with spaces"
+                            },
+                            "fullDescription": {
+                                "text": "\nExample::\n\n    # bad\n    keyword_with_underscores\n\n    # good\n    Keyword Without Underscores\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "\nExample::\n\n    # bad\n    keyword_with_underscores\n\n    # good\n    Keyword Without Underscores\n\n",
+                                "markdown": "\nExample::\n\n    # bad\n    keyword_with_underscores\n\n    # good\n    Keyword Without Underscores\n\n"
+                            }
+                        },
+                        {
+                            "id": "0306",
+                            "name": "setting-name-not-in-title-case",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#setting-name-not-in-title-case",
+                            "shortDescription": {
+                                "text": "Setting name '{{ setting_name }}' should use title or upper case"
+                            },
+                            "fullDescription": {
+                                "text": "\nGood::\n\n     *** Settings ***\n     Resource    file.resource\n\n     *** Test Cases ***\n     Test\n         [DOCUMENTATION]  Some documentation\n         Step\n\nBad::\n\n     *** Settings ***\n     resource    file.resource\n\n     *** Test Cases ***\n     Test\n         [documentation]  Some documentation\n         Step\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "\nGood::\n\n     *** Settings ***\n     Resource    file.resource\n\n     *** Test Cases ***\n     Test\n         [DOCUMENTATION]  Some documentation\n         Step\n\nBad::\n\n     *** Settings ***\n     resource    file.resource\n\n     *** Test Cases ***\n     Test\n         [documentation]  Some documentation\n         Step\n\n",
+                                "markdown": "\nGood::\n\n     *** Settings ***\n     Resource    file.resource\n\n     *** Test Cases ***\n     Test\n         [DOCUMENTATION]  Some documentation\n         Step\n\nBad::\n\n     *** Settings ***\n     resource    file.resource\n\n     *** Test Cases ***\n     Test\n         [documentation]  Some documentation\n         Step\n\n"
+                            }
+                        },
+                        {
+                            "id": "0307",
+                            "name": "section-name-invalid",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#section-name-invalid",
+                            "shortDescription": {
+                                "text": "Section name should be in format '{{ section_title_case }}' or '{{ section_upper_case }}'"
+                            },
+                            "fullDescription": {
+                                "text": "\nGood::\n\n    *** SETTINGS ***\n    *** Keywords ***\n\nBad::\n\n    *** keywords ***\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "\nGood::\n\n    *** SETTINGS ***\n    *** Keywords ***\n\nBad::\n\n    *** keywords ***\n\n",
+                                "markdown": "\nGood::\n\n    *** SETTINGS ***\n    *** Keywords ***\n\nBad::\n\n    *** keywords ***\n\n"
+                            }
+                        },
+                        {
+                            "id": "0308",
+                            "name": "not-capitalized-test-case-title",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#not-capitalized-test-case-title",
+                            "shortDescription": {
+                                "text": "Test case '{{ test_name }}' title should start with capital letter"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0309",
+                            "name": "section-variable-not-uppercase",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#section-variable-not-uppercase",
+                            "shortDescription": {
+                                "text": "Section variable '{{ variable_name }}' name should be uppercase"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0310",
+                            "name": "non-local-variables-should-be-uppercase",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#non-local-variables-should-be-uppercase",
+                            "shortDescription": {
+                                "text": "Test, suite and global variables should be uppercase"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0311",
+                            "name": "else-not-upper-case",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#else-not-upper-case",
+                            "shortDescription": {
+                                "text": "ELSE and ELSE IF should be upper case"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0312",
+                            "name": "keyword-name-is-empty",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#keyword-name-is-empty",
+                            "shortDescription": {
+                                "text": "Keyword name should not be empty"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0313",
+                            "name": "test-case-name-is-empty",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#test-case-name-is-empty",
+                            "shortDescription": {
+                                "text": "Test case name should not be empty"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0314",
+                            "name": "empty-library-alias",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#empty-library-alias",
+                            "shortDescription": {
+                                "text": "Library alias should not be empty"
+                            },
+                            "fullDescription": {
+                                "text": "\nUse non-empty name when using library import with alias.\n\nGood::\n\n    *** Settings ***\n    Library  CustomLibrary  AS  AnotherName\n\nBad::\n\n     *** Settings ***\n     Library  CustomLibrary  AS\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "\nUse non-empty name when using library import with alias.\n\nGood::\n\n    *** Settings ***\n    Library  CustomLibrary  AS  AnotherName\n\nBad::\n\n     *** Settings ***\n     Library  CustomLibrary  AS\n\n",
+                                "markdown": "\nUse non-empty name when using library import with alias.\n\nGood::\n\n    *** Settings ***\n    Library  CustomLibrary  AS  AnotherName\n\nBad::\n\n     *** Settings ***\n     Library  CustomLibrary  AS\n\n"
+                            }
+                        },
+                        {
+                            "id": "0315",
+                            "name": "duplicated-library-alias",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#duplicated-library-alias",
+                            "shortDescription": {
+                                "text": "Library alias should not be the same as original name"
+                            },
+                            "fullDescription": {
+                                "text": "\nExample of rule violation::\n\n     *** Settings ***\n     Library  CustomLibrary  AS  CustomLibrary  # same as library name\n     Library  CustomLibrary  AS  Custom Library  # same as library name (spaces are ignored)\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "\nExample of rule violation::\n\n     *** Settings ***\n     Library  CustomLibrary  AS  CustomLibrary  # same as library name\n     Library  CustomLibrary  AS  Custom Library  # same as library name (spaces are ignored)\n\n",
+                                "markdown": "\nExample of rule violation::\n\n     *** Settings ***\n     Library  CustomLibrary  AS  CustomLibrary  # same as library name\n     Library  CustomLibrary  AS  Custom Library  # same as library name (spaces are ignored)\n\n"
+                            }
+                        },
+                        {
+                            "id": "0316",
+                            "name": "possible-variable-overwriting",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#possible-variable-overwriting",
+                            "shortDescription": {
+                                "text": "Variable '{{ variable_name }}' may overwrite similar variable inside '{{ block_name }}' {{ block_type }}. Note that variables are case-insensitive, and also spaces and underscores are ignored."
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "note"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0317",
+                            "name": "hyphen-in-variable-name",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#hyphen-in-variable-name",
+                            "shortDescription": {
+                                "text": "Use underscore in variable name '{{ variable_name }}' instead of hyphens to avoid treating them like minus sign"
+                            },
+                            "fullDescription": {
+                                "text": "\nRobot Framework supports evaluation of Python code inside ${ } brackets. For example::\n\n     ${var2}  Set Variable  ${${var}-${var2}}\n\nThat's why there is possibility that hyphen in name is not recognized as part of name but as minus sign.\nBetter to use underscore (if it's intended)::\n\n${var2}  Set Variable  ${ ${var}_${var2}}\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "note"
+                            },
+                            "help": {
+                                "text": "\nRobot Framework supports evaluation of Python code inside ${ } brackets. For example::\n\n     ${var2}  Set Variable  ${${var}-${var2}}\n\nThat's why there is possibility that hyphen in name is not recognized as part of name but as minus sign.\nBetter to use underscore (if it's intended)::\n\n${var2}  Set Variable  ${ ${var}_${var2}}\n",
+                                "markdown": "\nRobot Framework supports evaluation of Python code inside ${ } brackets. For example::\n\n     ${var2}  Set Variable  ${${var}-${var2}}\n\nThat's why there is possibility that hyphen in name is not recognized as part of name but as minus sign.\nBetter to use underscore (if it's intended)::\n\n${var2}  Set Variable  ${ ${var}_${var2}}\n"
+                            }
+                        },
+                        {
+                            "id": "0318",
+                            "name": "bdd-without-keyword-call",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#bdd-without-keyword-call",
+                            "shortDescription": {
+                                "text": "BDD reserved keyword '{{ keyword_name }}' not followed by any keyword{{ error_msg }}"
+                            },
+                            "fullDescription": {
+                                "text": "\nWhen using BDD reserved keywords (such as `GIVEN`, `WHEN`, `AND`, `BUT` or `THEN`) use them together with\nname of the keyword to run.\n\nGood::\n\n    Given Setup Is Complete\n    When User Log In\n    Then User Should See Welcome Page\n\nBad::\n\n    Given\n    When User Log In\n    Then User Should See Welcome Page\n\nSince those words are used for BDD style it's also recommended not to use them within the keyword name.\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "\nWhen using BDD reserved keywords (such as `GIVEN`, `WHEN`, `AND`, `BUT` or `THEN`) use them together with\nname of the keyword to run.\n\nGood::\n\n    Given Setup Is Complete\n    When User Log In\n    Then User Should See Welcome Page\n\nBad::\n\n    Given\n    When User Log In\n    Then User Should See Welcome Page\n\nSince those words are used for BDD style it's also recommended not to use them within the keyword name.\n",
+                                "markdown": "\nWhen using BDD reserved keywords (such as `GIVEN`, `WHEN`, `AND`, `BUT` or `THEN`) use them together with\nname of the keyword to run.\n\nGood::\n\n    Given Setup Is Complete\n    When User Log In\n    Then User Should See Welcome Page\n\nBad::\n\n    Given\n    When User Log In\n    Then User Should See Welcome Page\n\nSince those words are used for BDD style it's also recommended not to use them within the keyword name.\n"
+                            }
+                        },
+                        {
+                            "id": "0319",
+                            "name": "deprecated-statement",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#deprecated-statement",
+                            "shortDescription": {
+                                "text": "'{{ statement_name }}' is deprecated since Robot Framework version {{ version }}, use '{{ alternative }}' instead"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0320",
+                            "name": "not-allowed-char-in-filename",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#not-allowed-char-in-filename",
+                            "shortDescription": {
+                                "text": "Not allowed character '{{ character }}' found in {{ block_name }} name"
+                            },
+                            "fullDescription": {
+                                "text": "\nReports not allowed pattern found in Suite names. By default it's dot (`.`). You can\nconfigure what characters are reported by calling::\n\n     robocop --configure not-allowed-char-in-filename:pattern:regex_pattern\n\n`regex_pattern` should define regex pattern for characters not allowed in names. For example `[@\\[]` pattern\nreports any occurrence of `@[` characters.\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "\nReports not allowed pattern found in Suite names. By default it's dot (`.`). You can\nconfigure what characters are reported by calling::\n\n     robocop --configure not-allowed-char-in-filename:pattern:regex_pattern\n\n`regex_pattern` should define regex pattern for characters not allowed in names. For example `[@\\[]` pattern\nreports any occurrence of `@[` characters.\n",
+                                "markdown": "\nReports not allowed pattern found in Suite names. By default it's dot (`.`). You can\nconfigure what characters are reported by calling::\n\n     robocop --configure not-allowed-char-in-filename:pattern:regex_pattern\n\n`regex_pattern` should define regex pattern for characters not allowed in names. For example `[@\\[]` pattern\nreports any occurrence of `@[` characters.\n"
+                            }
+                        },
+                        {
+                            "id": "0401",
+                            "name": "parsing-error",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#parsing-error",
+                            "shortDescription": {
+                                "text": "Robot Framework syntax error: {{ error_msg }}"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0402",
+                            "name": "not-enough-whitespace-after-setting",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#not-enough-whitespace-after-setting",
+                            "shortDescription": {
+                                "text": "Provide at least two spaces after '{{ setting_name }}' setting"
+                            },
+                            "fullDescription": {
+                                "text": "\nExample of rule violation::\n\n    *** Test Cases ***\n    Test\n        [Documentation] doc  # only one space after [Documentation]\n        Keyword\n\n    *** Keywords ***\n    Keyword\n        [Documentation]  This is doc\n        [Arguments] ${var}  # only one space after [Arguments]\n        Should Be True  ${var}\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "\nExample of rule violation::\n\n    *** Test Cases ***\n    Test\n        [Documentation] doc  # only one space after [Documentation]\n        Keyword\n\n    *** Keywords ***\n    Keyword\n        [Documentation]  This is doc\n        [Arguments] ${var}  # only one space after [Arguments]\n        Should Be True  ${var}\n\n",
+                                "markdown": "\nExample of rule violation::\n\n    *** Test Cases ***\n    Test\n        [Documentation] doc  # only one space after [Documentation]\n        Keyword\n\n    *** Keywords ***\n    Keyword\n        [Documentation]  This is doc\n        [Arguments] ${var}  # only one space after [Arguments]\n        Should Be True  ${var}\n\n"
+                            }
+                        },
+                        {
+                            "id": "0403",
+                            "name": "missing-keyword-name",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#missing-keyword-name",
+                            "shortDescription": {
+                                "text": "Missing keyword name when calling some values"
+                            },
+                            "fullDescription": {
+                                "text": "\nExample of rule violation::\n\n    *** Keywords ***\n    Keyword\n        ${var}\n        ${one}      ${two}\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "\nExample of rule violation::\n\n    *** Keywords ***\n    Keyword\n        ${var}\n        ${one}      ${two}\n\n",
+                                "markdown": "\nExample of rule violation::\n\n    *** Keywords ***\n    Keyword\n        ${var}\n        ${one}      ${two}\n\n"
+                            }
+                        },
+                        {
+                            "id": "0404",
+                            "name": "variables-import-with-args",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#variables-import-with-args",
+                            "shortDescription": {
+                                "text": "Robot and YAML variable files do not take arguments"
+                            },
+                            "fullDescription": {
+                                "text": "\nExample of rule violation::\n\n    *** Settings ***\n    Variables    vars.yaml    arg1\n    Variables    variables.robot    arg\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "\nExample of rule violation::\n\n    *** Settings ***\n    Variables    vars.yaml    arg1\n    Variables    variables.robot    arg\n\n",
+                                "markdown": "\nExample of rule violation::\n\n    *** Settings ***\n    Variables    vars.yaml    arg1\n    Variables    variables.robot    arg\n\n"
+                            }
+                        },
+                        {
+                            "id": "0405",
+                            "name": "invalid-continuation-mark",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#invalid-continuation-mark",
+                            "shortDescription": {
+                                "text": "Invalid continuation mark '{{ mark }}'. It should be '...'"
+                            },
+                            "fullDescription": {
+                                "text": "\nExample of rule violation::\n\n    Keyword\n    ..  ${var}  # .. instead of ...\n    ...  1\n    ....  2  # .... instead of ...\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "\nExample of rule violation::\n\n    Keyword\n    ..  ${var}  # .. instead of ...\n    ...  1\n    ....  2  # .... instead of ...\n\n",
+                                "markdown": "\nExample of rule violation::\n\n    Keyword\n    ..  ${var}  # .. instead of ...\n    ...  1\n    ....  2  # .... instead of ...\n\n"
+                            }
+                        },
+                        {
+                            "id": "0406",
+                            "name": "not-enough-whitespace-after-newline-marker",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#not-enough-whitespace-after-newline-marker",
+                            "shortDescription": {
+                                "text": "Provide at least two spaces after '...' marker"
+                            },
+                            "fullDescription": {
+                                "text": "\nExample of rule violation::\n\n    @{LIST}  1\n    ... 2  # not enough whitespace\n    ...  3\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "\nExample of rule violation::\n\n    @{LIST}  1\n    ... 2  # not enough whitespace\n    ...  3\n\n",
+                                "markdown": "\nExample of rule violation::\n\n    @{LIST}  1\n    ... 2  # not enough whitespace\n    ...  3\n\n"
+                            }
+                        },
+                        {
+                            "id": "0407",
+                            "name": "invalid-argument",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#invalid-argument",
+                            "shortDescription": {
+                                "text": "{{ error_msg }}"
+                            },
+                            "fullDescription": {
+                                "text": "\nArgument names should follow variable naming syntax: start with identifier (`$`, `@` or `&`) and enclosed in \ncurly brackets (`{}`).\n\nValid names::\n\n    Keyword\n        [Arguments]    ${var}    @{args}    &{config}    ${var}=default\n\nInvalid names::\n\n    Keyword\n        [Arguments]    {var}    @args}    var=default\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "\nArgument names should follow variable naming syntax: start with identifier (`$`, `@` or `&`) and enclosed in \ncurly brackets (`{}`).\n\nValid names::\n\n    Keyword\n        [Arguments]    ${var}    @{args}    &{config}    ${var}=default\n\nInvalid names::\n\n    Keyword\n        [Arguments]    {var}    @args}    var=default\n\n",
+                                "markdown": "\nArgument names should follow variable naming syntax: start with identifier (`$`, `@` or `&`) and enclosed in \ncurly brackets (`{}`).\n\nValid names::\n\n    Keyword\n        [Arguments]    ${var}    @{args}    &{config}    ${var}=default\n\nInvalid names::\n\n    Keyword\n        [Arguments]    {var}    @args}    var=default\n\n"
+                            }
+                        },
+                        {
+                            "id": "0408",
+                            "name": "non-existing-setting",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#non-existing-setting",
+                            "shortDescription": {
+                                "text": "{{ error_msg }}"
+                            },
+                            "fullDescription": {
+                                "text": "\nNon-existing setting can't be used in the code.\n\nRule violation example::\n\n   *** Test Case ***\n       [Not Existing]  arg\n       [Arguments]  ${arg}\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "\nNon-existing setting can't be used in the code.\n\nRule violation example::\n\n   *** Test Case ***\n       [Not Existing]  arg\n       [Arguments]  ${arg}\n\n",
+                                "markdown": "\nNon-existing setting can't be used in the code.\n\nRule violation example::\n\n   *** Test Case ***\n       [Not Existing]  arg\n       [Arguments]  ${arg}\n\n"
+                            }
+                        },
+                        {
+                            "id": "0409",
+                            "name": "setting-not-supported",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#setting-not-supported",
+                            "shortDescription": {
+                                "text": "Setting '[{{ setting_name }}]' is not supported in {{ test_or_keyword }}. Allowed are: {{ allowed_settings }}"
+                            },
+                            "fullDescription": {
+                                "text": "\nFollowing settings are supported in Test Case::\n\n    [Documentation]\t Used for specifying a test case documentation.\n    [Tags]\t         Used for tagging test cases.\n    [Setup]\t         Used for specifying a test setup.\n    [Teardown]\t     Used for specifying a test teardown.\n    [Template]\t     Used for specifying a template keyword.\n    [Timeout]\t     Used for specifying a test case timeout.\n\nFollowing settings are supported in Keyword::\n\n    [Documentation]\t Used for specifying a user keyword documentation.\n    [Tags]\t         Used for specifying user keyword tags.\n    [Arguments]\t     Used for specifying user keyword arguments.\n    [Return]\t     Used for specifying user keyword return values.\n    [Teardown]\t     Used for specifying user keyword teardown.\n    [Timeout]\t     Used for specifying a user keyword timeout.\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "\nFollowing settings are supported in Test Case::\n\n    [Documentation]\t Used for specifying a test case documentation.\n    [Tags]\t         Used for tagging test cases.\n    [Setup]\t         Used for specifying a test setup.\n    [Teardown]\t     Used for specifying a test teardown.\n    [Template]\t     Used for specifying a template keyword.\n    [Timeout]\t     Used for specifying a test case timeout.\n\nFollowing settings are supported in Keyword::\n\n    [Documentation]\t Used for specifying a user keyword documentation.\n    [Tags]\t         Used for specifying user keyword tags.\n    [Arguments]\t     Used for specifying user keyword arguments.\n    [Return]\t     Used for specifying user keyword return values.\n    [Teardown]\t     Used for specifying user keyword teardown.\n    [Timeout]\t     Used for specifying a user keyword timeout.\n\n",
+                                "markdown": "\nFollowing settings are supported in Test Case::\n\n    [Documentation]\t Used for specifying a test case documentation.\n    [Tags]\t         Used for tagging test cases.\n    [Setup]\t         Used for specifying a test setup.\n    [Teardown]\t     Used for specifying a test teardown.\n    [Template]\t     Used for specifying a template keyword.\n    [Timeout]\t     Used for specifying a test case timeout.\n\nFollowing settings are supported in Keyword::\n\n    [Documentation]\t Used for specifying a user keyword documentation.\n    [Tags]\t         Used for specifying user keyword tags.\n    [Arguments]\t     Used for specifying user keyword arguments.\n    [Return]\t     Used for specifying user keyword return values.\n    [Teardown]\t     Used for specifying user keyword teardown.\n    [Timeout]\t     Used for specifying a user keyword timeout.\n\n"
+                            }
+                        },
+                        {
+                            "id": "0410",
+                            "name": "not-enough-whitespace-after-variable",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#not-enough-whitespace-after-variable",
+                            "shortDescription": {
+                                "text": "Provide at least two spaces after '{{ variable_name }}' variable name"
+                            },
+                            "fullDescription": {
+                                "text": "\nExample of rule violation::\n\n    ${variable} 1  # not enough whitespace\n    ${other_var}  2\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "\nExample of rule violation::\n\n    ${variable} 1  # not enough whitespace\n    ${other_var}  2\n\n",
+                                "markdown": "\nExample of rule violation::\n\n    ${variable} 1  # not enough whitespace\n    ${other_var}  2\n\n"
+                            }
+                        },
+                        {
+                            "id": "0411",
+                            "name": "not-enough-whitespace-after-suite-setting",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#not-enough-whitespace-after-suite-setting",
+                            "shortDescription": {
+                                "text": "Provide at least two spaces after '{{ setting_name }}' setting"
+                            },
+                            "fullDescription": {
+                                "text": "\nExample of rule violation::\n\n    *** Settings ***\n    Library Collections  # not enough whitespace\n    Force Tags  tag\n    ...  tag2\n    Suite Setup Keyword  # not enough whitespace\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "\nExample of rule violation::\n\n    *** Settings ***\n    Library Collections  # not enough whitespace\n    Force Tags  tag\n    ...  tag2\n    Suite Setup Keyword  # not enough whitespace\n\n",
+                                "markdown": "\nExample of rule violation::\n\n    *** Settings ***\n    Library Collections  # not enough whitespace\n    Force Tags  tag\n    ...  tag2\n    Suite Setup Keyword  # not enough whitespace\n\n"
+                            }
+                        },
+                        {
+                            "id": "0412",
+                            "name": "invalid-for-loop",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#invalid-for-loop",
+                            "shortDescription": {
+                                "text": "Invalid for loop syntax: {{ error_msg }}"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0413",
+                            "name": "invalid-if",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#invalid-if",
+                            "shortDescription": {
+                                "text": "Invalid IF syntax: {{ error_msg }}"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0414",
+                            "name": "return-in-test-case",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#return-in-test-case",
+                            "shortDescription": {
+                                "text": "RETURN can only be used inside a user keyword"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0501",
+                            "name": "too-long-keyword",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#too-long-keyword",
+                            "shortDescription": {
+                                "text": "Keyword '{{ keyword_name }}' is too long ({{ keyword_length }}/{{ allowed_length}})"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0502",
+                            "name": "too-few-calls-in-keyword",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#too-few-calls-in-keyword",
+                            "shortDescription": {
+                                "text": "Keyword '{{ keyword_name }}' has too few keywords inside ({{ keyword_count }}/{{ min_allowed_count }})"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0503",
+                            "name": "too-many-calls-in-keyword",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#too-many-calls-in-keyword",
+                            "shortDescription": {
+                                "text": "Keyword '{{ keyword_name }}' has too many keywords inside ({{ keyword_count }}/{{ max_allowed_count }})"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0504",
+                            "name": "too-long-test-case",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#too-long-test-case",
+                            "shortDescription": {
+                                "text": "Test case '{{ test_name }}' is too long ({{ test_length }}/{{ allowed_length }})"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0505",
+                            "name": "too-many-calls-in-test-case",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#too-many-calls-in-test-case",
+                            "shortDescription": {
+                                "text": "Test case '{{ test_name }}' has too many keywords inside ({{ keyword_count }}/{{ max_allowed_count }})"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0506",
+                            "name": "file-too-long",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#file-too-long",
+                            "shortDescription": {
+                                "text": "File has too many lines ({{ lines_count }}/{{max_allowed_count }})"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0507",
+                            "name": "too-many-arguments",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#too-many-arguments",
+                            "shortDescription": {
+                                "text": "Keyword '{{ keyword_name }}' has too many arguments ({{ arguments_count }}/{{ max_allowed_count }})"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0508",
+                            "name": "line-too-long",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#line-too-long",
+                            "shortDescription": {
+                                "text": "Line is too long ({{ line_length }}/{{ allowed_length }})"
+                            },
+                            "fullDescription": {
+                                "text": "\nIt is possible to ignore lines that match regex pattern. Configure it using following option::\n\n    robocop --configure line-too-long:ignore_pattern:pattern\n\nThe default pattern is ``https?://\\S+`` that ignores the lines that look like an URL.\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "\nIt is possible to ignore lines that match regex pattern. Configure it using following option::\n\n    robocop --configure line-too-long:ignore_pattern:pattern\n\nThe default pattern is ``https?://\\S+`` that ignores the lines that look like an URL.\n\n",
+                                "markdown": "\nIt is possible to ignore lines that match regex pattern. Configure it using following option::\n\n    robocop --configure line-too-long:ignore_pattern:pattern\n\nThe default pattern is ``https?://\\S+`` that ignores the lines that look like an URL.\n\n"
+                            }
+                        },
+                        {
+                            "id": "0509",
+                            "name": "empty-section",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#empty-section",
+                            "shortDescription": {
+                                "text": "Section '{{ section_name }}' is empty"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0510",
+                            "name": "number-of-returned-values",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#number-of-returned-values",
+                            "shortDescription": {
+                                "text": "Too many return values ({{ return_count }}/{{ max_allowed_count }})"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0511",
+                            "name": "empty-metadata",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#empty-metadata",
+                            "shortDescription": {
+                                "text": "Metadata settings does not have any value set"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0512",
+                            "name": "empty-documentation",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#empty-documentation",
+                            "shortDescription": {
+                                "text": "Documentation of {{ block_name }} is empty"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0513",
+                            "name": "empty-force-tags",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#empty-force-tags",
+                            "shortDescription": {
+                                "text": "Force Tags are empty"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0514",
+                            "name": "empty-default-tags",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#empty-default-tags",
+                            "shortDescription": {
+                                "text": "Default Tags are empty"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0515",
+                            "name": "empty-variables-import",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#empty-variables-import",
+                            "shortDescription": {
+                                "text": "Import variables path is empty"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0516",
+                            "name": "empty-resource-import",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#empty-resource-import",
+                            "shortDescription": {
+                                "text": "Import resource path is empty"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0517",
+                            "name": "empty-library-import",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#empty-library-import",
+                            "shortDescription": {
+                                "text": "Import library path is empty"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0518",
+                            "name": "empty-setup",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#empty-setup",
+                            "shortDescription": {
+                                "text": "Setup of {{ block_name }} does not have any keywords"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0519",
+                            "name": "empty-suite-setup",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#empty-suite-setup",
+                            "shortDescription": {
+                                "text": "Suite Setup does not have any keywords"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0520",
+                            "name": "empty-test-setup",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#empty-test-setup",
+                            "shortDescription": {
+                                "text": "Test Setup does not have any keywords"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0521",
+                            "name": "empty-teardown",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#empty-teardown",
+                            "shortDescription": {
+                                "text": "Teardown of {{ block_name }} does not have any keywords"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0522",
+                            "name": "empty-suite-teardown",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#empty-suite-teardown",
+                            "shortDescription": {
+                                "text": "Suite Teardown does not have any keywords"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0523",
+                            "name": "empty-test-teardown",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#empty-test-teardown",
+                            "shortDescription": {
+                                "text": "Test Teardown does not have any keywords"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0524",
+                            "name": "empty-timeout",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#empty-timeout",
+                            "shortDescription": {
+                                "text": "Timeout of {{ block_name }} is empty"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0525",
+                            "name": "empty-test-timeout",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#empty-test-timeout",
+                            "shortDescription": {
+                                "text": "Test Timeout is empty"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0526",
+                            "name": "empty-arguments",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#empty-arguments",
+                            "shortDescription": {
+                                "text": "Arguments of {{ block_name }} are empty"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0527",
+                            "name": "too-many-test-cases",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#too-many-test-cases",
+                            "shortDescription": {
+                                "text": "Too many test cases ({{ test_count }}/{{ max_allowed_count }})"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0528",
+                            "name": "too-few-calls-in-test-case",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#too-few-calls-in-test-case",
+                            "shortDescription": {
+                                "text": "Test case '{{ test_name }}' has too few keywords inside ({{ keyword_count }}/{{ min_allowed_count }})"
+                            },
+                            "fullDescription": {
+                                "text": "\nTest without keywords will fail. Add more keywords or set results using Fail, Pass, Skip keywords::\n\n    *** Test Cases ***\n    Test case\n        [Tags]    smoke\n        Skip    Test case draft\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "\nTest without keywords will fail. Add more keywords or set results using Fail, Pass, Skip keywords::\n\n    *** Test Cases ***\n    Test case\n        [Tags]    smoke\n        Skip    Test case draft\n\n",
+                                "markdown": "\nTest without keywords will fail. Add more keywords or set results using Fail, Pass, Skip keywords::\n\n    *** Test Cases ***\n    Test case\n        [Tags]    smoke\n        Skip    Test case draft\n\n"
+                            }
+                        },
+                        {
+                            "id": "0601",
+                            "name": "tag-with-space",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#tag-with-space",
+                            "shortDescription": {
+                                "text": "Tag '{{ tag }}' should not contain spaces"
+                            },
+                            "fullDescription": {
+                                "text": "\nExample of rule violation::\n\n    Test\n        [Tags]  ${tag with space}\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "\nExample of rule violation::\n\n    Test\n        [Tags]  ${tag with space}\n\n",
+                                "markdown": "\nExample of rule violation::\n\n    Test\n        [Tags]  ${tag with space}\n\n"
+                            }
+                        },
+                        {
+                            "id": "0602",
+                            "name": "tag-with-or-and",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#tag-with-or-and",
+                            "shortDescription": {
+                                "text": "Tag '{{ tag }}' with reserved word OR/AND. Hint: make sure to include this tag using lowercase name to avoid issues"
+                            },
+                            "fullDescription": {
+                                "text": "\nOR and AND words are used to combine tags when selecting tests to be run in Robot Framework. Using following \nconfiguration::\n\n    robot --include tagANDtag2\n\nRobot Framework will only execute tests that contain `tag` and `tag2`. That's why it's best to avoid AND and OR \nin tag names. See \n`docs <https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#tag-patterns>`_ \nfor more information.\n\nTag matching is case-insensitive. If your tag contains OR or AND you can use lowercase to match it.\nFor example, if your tag is `PORT` you can match it with `port`.\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "note"
+                            },
+                            "help": {
+                                "text": "\nOR and AND words are used to combine tags when selecting tests to be run in Robot Framework. Using following \nconfiguration::\n\n    robot --include tagANDtag2\n\nRobot Framework will only execute tests that contain `tag` and `tag2`. That's why it's best to avoid AND and OR \nin tag names. See \n`docs <https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#tag-patterns>`_ \nfor more information.\n\nTag matching is case-insensitive. If your tag contains OR or AND you can use lowercase to match it.\nFor example, if your tag is `PORT` you can match it with `port`.\n",
+                                "markdown": "\nOR and AND words are used to combine tags when selecting tests to be run in Robot Framework. Using following \nconfiguration::\n\n    robot --include tagANDtag2\n\nRobot Framework will only execute tests that contain `tag` and `tag2`. That's why it's best to avoid AND and OR \nin tag names. See \n`docs <https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#tag-patterns>`_ \nfor more information.\n\nTag matching is case-insensitive. If your tag contains OR or AND you can use lowercase to match it.\nFor example, if your tag is `PORT` you can match it with `port`.\n"
+                            }
+                        },
+                        {
+                            "id": "0603",
+                            "name": "tag-with-reserved-word",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#tag-with-reserved-word",
+                            "shortDescription": {
+                                "text": "Tag '{{ tag }}' prefixed with reserved word `robot:`"
+                            },
+                            "fullDescription": {
+                                "text": "\nThis prefix is used by Robot Framework special tags. More details \n`here <https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#reserved-tags>`_.\nSpecial tags currently in use:\n\n    - robot:exit\n    - robot:no-dry-run\n    - robot:continue-on-failure \n    - robot:recursive-continue-on-failure\n    - robot:skip\n    - robot:skip-on-failure\n    - robot:stop-on-failure\n    - robot:exclude\n    - robot:private\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "\nThis prefix is used by Robot Framework special tags. More details \n`here <https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#reserved-tags>`_.\nSpecial tags currently in use:\n\n    - robot:exit\n    - robot:no-dry-run\n    - robot:continue-on-failure \n    - robot:recursive-continue-on-failure\n    - robot:skip\n    - robot:skip-on-failure\n    - robot:stop-on-failure\n    - robot:exclude\n    - robot:private\n\n",
+                                "markdown": "\nThis prefix is used by Robot Framework special tags. More details \n`here <https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#reserved-tags>`_.\nSpecial tags currently in use:\n\n    - robot:exit\n    - robot:no-dry-run\n    - robot:continue-on-failure \n    - robot:recursive-continue-on-failure\n    - robot:skip\n    - robot:skip-on-failure\n    - robot:stop-on-failure\n    - robot:exclude\n    - robot:private\n\n"
+                            }
+                        },
+                        {
+                            "id": "0605",
+                            "name": "could-be-forced-tags",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#could-be-forced-tags",
+                            "shortDescription": {
+                                "text": "All tests in suite share these tags: '{{ tags }}'. You can define them in 'Force Tags' in suite settings instead"
+                            },
+                            "fullDescription": {
+                                "text": "\nExample::\n\n    *** Test Cases ***\n    Test\n        [Tag]  featureX  smoke\n        Step\n\n    Test 2\n        [Tag]  featureX\n        Step\n\nIn this example all tests share one common tag `featureX`. It can be declared just once using `Force Tags`.\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "note"
+                            },
+                            "help": {
+                                "text": "\nExample::\n\n    *** Test Cases ***\n    Test\n        [Tag]  featureX  smoke\n        Step\n\n    Test 2\n        [Tag]  featureX\n        Step\n\nIn this example all tests share one common tag `featureX`. It can be declared just once using `Force Tags`.\n",
+                                "markdown": "\nExample::\n\n    *** Test Cases ***\n    Test\n        [Tag]  featureX  smoke\n        Step\n\n    Test 2\n        [Tag]  featureX\n        Step\n\nIn this example all tests share one common tag `featureX`. It can be declared just once using `Force Tags`.\n"
+                            }
+                        },
+                        {
+                            "id": "0606",
+                            "name": "tag-already-set-in-force-tags",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#tag-already-set-in-force-tags",
+                            "shortDescription": {
+                                "text": "Tag '{{ tag }}' is already set by Force Tags in suite settings"
+                            },
+                            "fullDescription": {
+                                "text": "\nAvoid repeating same tags in tests when the tag is already declared in `Force Tags`.\nExample of rule violation::\n\n    *** Setting ***\n    Force Tags  common-tag\n\n    *** Test Cases ***\n    Test\n        [Tag]  sanity  common-tag\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "note"
+                            },
+                            "help": {
+                                "text": "\nAvoid repeating same tags in tests when the tag is already declared in `Force Tags`.\nExample of rule violation::\n\n    *** Setting ***\n    Force Tags  common-tag\n\n    *** Test Cases ***\n    Test\n        [Tag]  sanity  common-tag\n\n",
+                                "markdown": "\nAvoid repeating same tags in tests when the tag is already declared in `Force Tags`.\nExample of rule violation::\n\n    *** Setting ***\n    Force Tags  common-tag\n\n    *** Test Cases ***\n    Test\n        [Tag]  sanity  common-tag\n\n"
+                            }
+                        },
+                        {
+                            "id": "0607",
+                            "name": "unnecessary-default-tags",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#unnecessary-default-tags",
+                            "shortDescription": {
+                                "text": "Tags defined in Default Tags are always overwritten"
+                            },
+                            "fullDescription": {
+                                "text": "\nExample of rule violation::\n\n    *** Settings ***\n    Default Tags  tag1  tag2\n\n    *** Test Cases ***\n    Test\n        [Tags]  tag3\n        Step\n\n    Test 2\n        [Tags]  tag4\n        Step\n\nSince `Test` and `Test 2` have `[Tags]` section, `Default Tags` setting is never used.\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "note"
+                            },
+                            "help": {
+                                "text": "\nExample of rule violation::\n\n    *** Settings ***\n    Default Tags  tag1  tag2\n\n    *** Test Cases ***\n    Test\n        [Tags]  tag3\n        Step\n\n    Test 2\n        [Tags]  tag4\n        Step\n\nSince `Test` and `Test 2` have `[Tags]` section, `Default Tags` setting is never used.\n",
+                                "markdown": "\nExample of rule violation::\n\n    *** Settings ***\n    Default Tags  tag1  tag2\n\n    *** Test Cases ***\n    Test\n        [Tags]  tag3\n        Step\n\n    Test 2\n        [Tags]  tag4\n        Step\n\nSince `Test` and `Test 2` have `[Tags]` section, `Default Tags` setting is never used.\n"
+                            }
+                        },
+                        {
+                            "id": "0608",
+                            "name": "empty-tags",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#empty-tags",
+                            "shortDescription": {
+                                "text": "[Tags] setting without values{{ optional_warning }}"
+                            },
+                            "fullDescription": {
+                                "text": "\nIf you want to use empty `[Tags]` (for example to overwrite `Default Tags`) then use `NONE` value \nto be explicit.\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "\nIf you want to use empty `[Tags]` (for example to overwrite `Default Tags`) then use `NONE` value \nto be explicit.\n",
+                                "markdown": "\nIf you want to use empty `[Tags]` (for example to overwrite `Default Tags`) then use `NONE` value \nto be explicit.\n"
+                            }
+                        },
+                        {
+                            "id": "0609",
+                            "name": "duplicated-tags",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#duplicated-tags",
+                            "shortDescription": {
+                                "text": "Multiple tags with name '{{ name }}' (first occurrence at line {{ line }} column {{ column }})"
+                            },
+                            "fullDescription": {
+                                "text": "\nTags are free text, but they are normalized so that they are converted to lowercase and all spaces are removed.\nOnly first tag is used, other occurrences are ignored.\n\nExample of duplicated tags::\n\n    Test\n        [Tags]    Tag    TAG    tag    t a g\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "\nTags are free text, but they are normalized so that they are converted to lowercase and all spaces are removed.\nOnly first tag is used, other occurrences are ignored.\n\nExample of duplicated tags::\n\n    Test\n        [Tags]    Tag    TAG    tag    t a g\n\n",
+                                "markdown": "\nTags are free text, but they are normalized so that they are converted to lowercase and all spaces are removed.\nOnly first tag is used, other occurrences are ignored.\n\nExample of duplicated tags::\n\n    Test\n        [Tags]    Tag    TAG    tag    t a g\n\n"
+                            }
+                        },
+                        {
+                            "id": "0701",
+                            "name": "todo-in-comment",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#todo-in-comment",
+                            "shortDescription": {
+                                "text": "Found {{ todo_or_fixme }} in comment"
+                            },
+                            "fullDescription": {
+                                "text": "\nExample::\n\n    # TODO: Refactor this code\n    # fixme \n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "\nExample::\n\n    # TODO: Refactor this code\n    # fixme \n\n",
+                                "markdown": "\nExample::\n\n    # TODO: Refactor this code\n    # fixme \n\n"
+                            }
+                        },
+                        {
+                            "id": "0702",
+                            "name": "missing-space-after-comment",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#missing-space-after-comment",
+                            "shortDescription": {
+                                "text": "Missing blank space after comment character"
+                            },
+                            "fullDescription": {
+                                "text": "\nMake sure to have one blank space after '#' comment character\n\nExample::\n\n    #bad\n    # good\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "\nMake sure to have one blank space after '#' comment character\n\nExample::\n\n    #bad\n    # good\n",
+                                "markdown": "\nMake sure to have one blank space after '#' comment character\n\nExample::\n\n    #bad\n    # good\n"
+                            }
+                        },
+                        {
+                            "id": "0704",
+                            "name": "ignored-data",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#ignored-data",
+                            "shortDescription": {
+                                "text": "Ignored data found in file"
+                            },
+                            "fullDescription": {
+                                "text": "\nAll lines before first test data section \n(`ref <https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#test-data-sections>`_) \nare ignored. It's recommended to add `*** Comments ***` section header for lines that should be ignored.\n\nMissing section header::\n\n    Resource   file.resource  # it looks like *** Settings *** but section header is missing - line is ignored\n\n    *** Keywords ***\n    Keyword Name\n       No Operation\n\nComment lines that should be inside `*** Comments ***`::\n\n    Deprecated Test\n        Keyword\n        Keyword 2\n\n    *** Test Cases ***\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "\nAll lines before first test data section \n(`ref <https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#test-data-sections>`_) \nare ignored. It's recommended to add `*** Comments ***` section header for lines that should be ignored.\n\nMissing section header::\n\n    Resource   file.resource  # it looks like *** Settings *** but section header is missing - line is ignored\n\n    *** Keywords ***\n    Keyword Name\n       No Operation\n\nComment lines that should be inside `*** Comments ***`::\n\n    Deprecated Test\n        Keyword\n        Keyword 2\n\n    *** Test Cases ***\n\n",
+                                "markdown": "\nAll lines before first test data section \n(`ref <https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#test-data-sections>`_) \nare ignored. It's recommended to add `*** Comments ***` section header for lines that should be ignored.\n\nMissing section header::\n\n    Resource   file.resource  # it looks like *** Settings *** but section header is missing - line is ignored\n\n    *** Keywords ***\n    Keyword Name\n       No Operation\n\nComment lines that should be inside `*** Comments ***`::\n\n    Deprecated Test\n        Keyword\n        Keyword 2\n\n    *** Test Cases ***\n\n"
+                            }
+                        },
+                        {
+                            "id": "0705",
+                            "name": "bom-encoding-in-file",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#bom-encoding-in-file",
+                            "shortDescription": {
+                                "text": "This file contains BOM (Byte Order Mark) encoding not supported by Robot Framework"
+                            },
+                            "fullDescription": {
+                                "text": "\nSome code editors can save Robot file using BOM encoding. Ensure that file is saved in UTF-8 encoding.\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "\nSome code editors can save Robot file using BOM encoding. Ensure that file is saved in UTF-8 encoding.\n",
+                                "markdown": "\nSome code editors can save Robot file using BOM encoding. Ensure that file is saved in UTF-8 encoding.\n"
+                            }
+                        },
+                        {
+                            "id": "0801",
+                            "name": "duplicated-test-case",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#duplicated-test-case",
+                            "shortDescription": {
+                                "text": "Multiple test cases with name '{{ name }}' (first occurrence in line {{ first_occurrence_line }})"
+                            },
+                            "fullDescription": {
+                                "text": "\nIt is not allowed to reuse the same name of the test case within the same suite in Robot Framework. \nName matching is case-insensitive and ignores spaces and underscore characters.\nDuplicated test cases example::\n\n    *** Test Cases ***\n    Test with name\n        No Operation\n\n    test_with Name  # it is a duplicate of 'Test with name'\n        No Operation\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "\nIt is not allowed to reuse the same name of the test case within the same suite in Robot Framework. \nName matching is case-insensitive and ignores spaces and underscore characters.\nDuplicated test cases example::\n\n    *** Test Cases ***\n    Test with name\n        No Operation\n\n    test_with Name  # it is a duplicate of 'Test with name'\n        No Operation\n",
+                                "markdown": "\nIt is not allowed to reuse the same name of the test case within the same suite in Robot Framework. \nName matching is case-insensitive and ignores spaces and underscore characters.\nDuplicated test cases example::\n\n    *** Test Cases ***\n    Test with name\n        No Operation\n\n    test_with Name  # it is a duplicate of 'Test with name'\n        No Operation\n"
+                            }
+                        },
+                        {
+                            "id": "0802",
+                            "name": "duplicated-keyword",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#duplicated-keyword",
+                            "shortDescription": {
+                                "text": "Multiple keywords with name '{{ name }}' (first occurrence in line {{ first_occurrence_line }})"
+                            },
+                            "fullDescription": {
+                                "text": "\nDo not define keywords with the same name inside the same file. Name matching is case-insensitive and \nignores spaces and underscore characters.\nDuplicated keyword names example::\n\n    *** Keywords ***\n    Keyword\n        No Operation\n\n    keyword\n        No Operation\n\n    K_eywor d\n        No Operation\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "\nDo not define keywords with the same name inside the same file. Name matching is case-insensitive and \nignores spaces and underscore characters.\nDuplicated keyword names example::\n\n    *** Keywords ***\n    Keyword\n        No Operation\n\n    keyword\n        No Operation\n\n    K_eywor d\n        No Operation\n\n",
+                                "markdown": "\nDo not define keywords with the same name inside the same file. Name matching is case-insensitive and \nignores spaces and underscore characters.\nDuplicated keyword names example::\n\n    *** Keywords ***\n    Keyword\n        No Operation\n\n    keyword\n        No Operation\n\n    K_eywor d\n        No Operation\n\n"
+                            }
+                        },
+                        {
+                            "id": "0803",
+                            "name": "duplicated-variable",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#duplicated-variable",
+                            "shortDescription": {
+                                "text": "Multiple variables with name '{{ name }}' in Variables section (first occurrence in line {{ first_occurrence_line }}). Note that Robot Framework is case-insensitive"
+                            },
+                            "fullDescription": {
+                                "text": "\nVariable names in Robot Framework are case-insensitive and ignore spaces and underscores. Following variables \nare duplicates::\n\n    *** Variables ***\n    ${variable}    1\n    ${VARIAble}    a\n    @{variable}    a  b\n    ${v ariabl e}  c\n    ${v_ariable}   d\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "\nVariable names in Robot Framework are case-insensitive and ignore spaces and underscores. Following variables \nare duplicates::\n\n    *** Variables ***\n    ${variable}    1\n    ${VARIAble}    a\n    @{variable}    a  b\n    ${v ariabl e}  c\n    ${v_ariable}   d\n\n",
+                                "markdown": "\nVariable names in Robot Framework are case-insensitive and ignore spaces and underscores. Following variables \nare duplicates::\n\n    *** Variables ***\n    ${variable}    1\n    ${VARIAble}    a\n    @{variable}    a  b\n    ${v ariabl e}  c\n    ${v_ariable}   d\n\n"
+                            }
+                        },
+                        {
+                            "id": "0804",
+                            "name": "duplicated-resource",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#duplicated-resource",
+                            "shortDescription": {
+                                "text": "Multiple resource imports with path '{{ name }}' (first occurrence in line {{ first_occurrence_line }})"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0805",
+                            "name": "duplicated-library",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#duplicated-library",
+                            "shortDescription": {
+                                "text": "Multiple library imports with name '{{ name }}' and identical arguments (first occurrence in line {{ first_occurrence_line }})"
+                            },
+                            "fullDescription": {
+                                "text": "\nIf you need to reimport library use alias::\n\n    *** Settings ***\n    Library  RobotLibrary\n    Library  RobotLibrary  AS  OtherRobotLibrary\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "\nIf you need to reimport library use alias::\n\n    *** Settings ***\n    Library  RobotLibrary\n    Library  RobotLibrary  AS  OtherRobotLibrary\n\n",
+                                "markdown": "\nIf you need to reimport library use alias::\n\n    *** Settings ***\n    Library  RobotLibrary\n    Library  RobotLibrary  AS  OtherRobotLibrary\n\n"
+                            }
+                        },
+                        {
+                            "id": "0806",
+                            "name": "duplicated-metadata",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#duplicated-metadata",
+                            "shortDescription": {
+                                "text": "Duplicated metadata '{{ name }}' (first occurrence in line {{ first_occurrence_line }})"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0807",
+                            "name": "duplicated-variables-import",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#duplicated-variables-import",
+                            "shortDescription": {
+                                "text": "Duplicated variables import with path '{{ name }}' (first occurrence in line {{ first_occurrence_line }})"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "0808",
+                            "name": "section-already-defined",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#section-already-defined",
+                            "shortDescription": {
+                                "text": "'{{ section_name }}' section header already defined in file (first occurrence in line {{ first_occurrence_line }})"
+                            },
+                            "fullDescription": {
+                                "text": "\nDuplicated section in the file. Robot Framework will handle repeated sections but it is recommended to not \nduplicate them.\n\nExample::\n\n    *** Test Cases ***\n    My Test\n        Keyword\n\n    *** Keywords ***\n    Keyword\n        No Operation\n\n    *** Test Cases ***  # duplicate\n    Other Test\n        Keyword\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "\nDuplicated section in the file. Robot Framework will handle repeated sections but it is recommended to not \nduplicate them.\n\nExample::\n\n    *** Test Cases ***\n    My Test\n        Keyword\n\n    *** Keywords ***\n    Keyword\n        No Operation\n\n    *** Test Cases ***  # duplicate\n    Other Test\n        Keyword\n\n",
+                                "markdown": "\nDuplicated section in the file. Robot Framework will handle repeated sections but it is recommended to not \nduplicate them.\n\nExample::\n\n    *** Test Cases ***\n    My Test\n        Keyword\n\n    *** Keywords ***\n    Keyword\n        No Operation\n\n    *** Test Cases ***  # duplicate\n    Other Test\n        Keyword\n\n"
+                            }
+                        },
+                        {
+                            "id": "0809",
+                            "name": "section-out-of-order",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#section-out-of-order",
+                            "shortDescription": {
+                                "text": "'{{ section_name }}' section header is defined in wrong order: {{ recommended_order }}"
+                            },
+                            "fullDescription": {
+                                "text": "\nSections should be defined in order set by `sections_order` \nparameter (default: `settings,variables,testcases,keywords`).\n\nTo change the default order use following option::\n\n    robocop --configure section-out-of-order:sections_order:comma,separated,list,of,sections\n\nwhere section should be case-insensitive name from the list: comments, settings, variables, testcases, keywords. \nOrder of not configured sections is ignored.\n\nExample::\n\n    *** Settings ***\n\n    *** Keywords ***\n\n    *** Test Cases ***  # it will report issue because Test Cases should be defined before Keywords\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "\nSections should be defined in order set by `sections_order` \nparameter (default: `settings,variables,testcases,keywords`).\n\nTo change the default order use following option::\n\n    robocop --configure section-out-of-order:sections_order:comma,separated,list,of,sections\n\nwhere section should be case-insensitive name from the list: comments, settings, variables, testcases, keywords. \nOrder of not configured sections is ignored.\n\nExample::\n\n    *** Settings ***\n\n    *** Keywords ***\n\n    *** Test Cases ***  # it will report issue because Test Cases should be defined before Keywords\n\n",
+                                "markdown": "\nSections should be defined in order set by `sections_order` \nparameter (default: `settings,variables,testcases,keywords`).\n\nTo change the default order use following option::\n\n    robocop --configure section-out-of-order:sections_order:comma,separated,list,of,sections\n\nwhere section should be case-insensitive name from the list: comments, settings, variables, testcases, keywords. \nOrder of not configured sections is ignored.\n\nExample::\n\n    *** Settings ***\n\n    *** Keywords ***\n\n    *** Test Cases ***  # it will report issue because Test Cases should be defined before Keywords\n\n"
+                            }
+                        },
+                        {
+                            "id": "0810",
+                            "name": "both-tests-and-tasks",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#both-tests-and-tasks",
+                            "shortDescription": {
+                                "text": "Both Task(s) and Test Case(s) section headers defined in file"
+                            },
+                            "fullDescription": {
+                                "text": "\nThe file contains both Test Case and Task sections. Use only one of them. ::\n\n    *** Test Cases ***\n\n    *** Tasks ***\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "\nThe file contains both Test Case and Task sections. Use only one of them. ::\n\n    *** Test Cases ***\n\n    *** Tasks ***\n\n",
+                                "markdown": "\nThe file contains both Test Case and Task sections. Use only one of them. ::\n\n    *** Test Cases ***\n\n    *** Tasks ***\n\n"
+                            }
+                        },
+                        {
+                            "id": "0811",
+                            "name": "duplicated-argument-name",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#duplicated-argument-name",
+                            "shortDescription": {
+                                "text": "Argument name '{{ argument_name }}' is already used"
+                            },
+                            "fullDescription": {
+                                "text": "\nVariable names in Robot Framework are case-insensitive and ignores spaces and underscores. Following arguments \nare duplicates::\n\n    *** Keywords ***\n    Keyword\n        [Arguments]    ${var}  ${VAR}  ${v_ar}  ${v ar}\n        Other Keyword\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "\nVariable names in Robot Framework are case-insensitive and ignores spaces and underscores. Following arguments \nare duplicates::\n\n    *** Keywords ***\n    Keyword\n        [Arguments]    ${var}  ${VAR}  ${v_ar}  ${v ar}\n        Other Keyword\n\n",
+                                "markdown": "\nVariable names in Robot Framework are case-insensitive and ignores spaces and underscores. Following arguments \nare duplicates::\n\n    *** Keywords ***\n    Keyword\n        [Arguments]    ${var}  ${VAR}  ${v_ar}  ${v ar}\n        Other Keyword\n\n"
+                            }
+                        },
+                        {
+                            "id": "0812",
+                            "name": "duplicated-assigned-var-name",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#duplicated-assigned-var-name",
+                            "shortDescription": {
+                                "text": "Assigned variable name '{{ variable_name }}' is already used"
+                            },
+                            "fullDescription": {
+                                "text": "\nVariable names in Robot Framework are case-insensitive and ignores spaces and underscores. Following variables \nare duplicates::\n\n    *** Test Cases ***\n    Test\n        ${var}  ${VAR}  ${v_ar}  ${v ar}  Keyword\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "note"
+                            },
+                            "help": {
+                                "text": "\nVariable names in Robot Framework are case-insensitive and ignores spaces and underscores. Following variables \nare duplicates::\n\n    *** Test Cases ***\n    Test\n        ${var}  ${VAR}  ${v_ar}  ${v ar}  Keyword\n\n",
+                                "markdown": "\nVariable names in Robot Framework are case-insensitive and ignores spaces and underscores. Following variables \nare duplicates::\n\n    *** Test Cases ***\n    Test\n        ${var}  ${VAR}  ${v_ar}  ${v ar}  Keyword\n\n"
+                            }
+                        },
+                        {
+                            "id": "0813",
+                            "name": "duplicated-setting",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#duplicated-setting",
+                            "shortDescription": {
+                                "text": "{{ error_msg }}"
+                            },
+                            "fullDescription": {
+                                "text": "\nSome settings can be used only once in a file. Only the first value is used.\nExample::\n\n    *** Settings ***\n    Force Tags        F1\n    Force Tags        F2  # this setting will be ignored\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "\nSome settings can be used only once in a file. Only the first value is used.\nExample::\n\n    *** Settings ***\n    Force Tags        F1\n    Force Tags        F2  # this setting will be ignored\n\n",
+                                "markdown": "\nSome settings can be used only once in a file. Only the first value is used.\nExample::\n\n    *** Settings ***\n    Force Tags        F1\n    Force Tags        F2  # this setting will be ignored\n\n"
+                            }
+                        },
+                        {
+                            "id": "0901",
+                            "name": "keyword-after-return",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#keyword-after-return",
+                            "shortDescription": {
+                                "text": "{{ error_msg }}"
+                            },
+                            "fullDescription": {
+                                "text": "\nTo improve readability use `[Return]` setting at the end of the keyword. If you want to return immediately from \nthe keyword use `RETURN` statement instead (`[Return]` does not return until all steps in the \nkeyword are completed).\n\nBad::\n\n    Keyword\n        Step\n        [Return]    ${variable}\n        ${variable}    Other Step\n\nGood::\n\n    Keyword\n        Step\n        ${variable}    Other Step\n        [Return]    ${variable}\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "\nTo improve readability use `[Return]` setting at the end of the keyword. If you want to return immediately from \nthe keyword use `RETURN` statement instead (`[Return]` does not return until all steps in the \nkeyword are completed).\n\nBad::\n\n    Keyword\n        Step\n        [Return]    ${variable}\n        ${variable}    Other Step\n\nGood::\n\n    Keyword\n        Step\n        ${variable}    Other Step\n        [Return]    ${variable}\n\n",
+                                "markdown": "\nTo improve readability use `[Return]` setting at the end of the keyword. If you want to return immediately from \nthe keyword use `RETURN` statement instead (`[Return]` does not return until all steps in the \nkeyword are completed).\n\nBad::\n\n    Keyword\n        Step\n        [Return]    ${variable}\n        ${variable}    Other Step\n\nGood::\n\n    Keyword\n        Step\n        ${variable}    Other Step\n        [Return]    ${variable}\n\n"
+                            }
+                        },
+                        {
+                            "id": "0903",
+                            "name": "empty-return",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#empty-return",
+                            "shortDescription": {
+                                "text": "[Return] is empty"
+                            },
+                            "fullDescription": {
+                                "text": "\n`[Return]` statement is used to define variables returned from keyword. If you don't return anything from \nkeyword,  don't use `[Return]`.\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "\n`[Return]` statement is used to define variables returned from keyword. If you don't return anything from \nkeyword,  don't use `[Return]`.\n",
+                                "markdown": "\n`[Return]` statement is used to define variables returned from keyword. If you don't return anything from \nkeyword,  don't use `[Return]`.\n"
+                            }
+                        },
+                        {
+                            "id": "0909",
+                            "name": "inconsistent-assignment",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#inconsistent-assignment",
+                            "shortDescription": {
+                                "text": "The assignment sign is not consistent within the file. Expected '{{ expected_sign }}' but got '{{ actual_sign }}' instead"
+                            },
+                            "fullDescription": {
+                                "text": "\nUse only one type of assignment sign in a file. \n\nExample of rule violation::\n\n    *** Keywords ***\n    Keyword\n        ${var} =  Other Keyword\n        No Operation\n\n    Keyword 2\n        No Operation\n        ${var}  ${var2}  Some Keyword  # this assignment doesn't use equal sign while the previous one uses ` =`\n\nBy default Robocop looks for most popular assignment sign in the file. It is possible to define expected \nassignment sign by running::\n\n    robocop --configure inconsistent-assignment:assignment_sign_type:equal_sign\n\nYou can choose between following signs: 'autodetect' (default), 'none' (''), 'equal_sign' ('=') or \nspace_and_equal_sign (' =').\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "\nUse only one type of assignment sign in a file. \n\nExample of rule violation::\n\n    *** Keywords ***\n    Keyword\n        ${var} =  Other Keyword\n        No Operation\n\n    Keyword 2\n        No Operation\n        ${var}  ${var2}  Some Keyword  # this assignment doesn't use equal sign while the previous one uses ` =`\n\nBy default Robocop looks for most popular assignment sign in the file. It is possible to define expected \nassignment sign by running::\n\n    robocop --configure inconsistent-assignment:assignment_sign_type:equal_sign\n\nYou can choose between following signs: 'autodetect' (default), 'none' (''), 'equal_sign' ('=') or \nspace_and_equal_sign (' =').\n\n",
+                                "markdown": "\nUse only one type of assignment sign in a file. \n\nExample of rule violation::\n\n    *** Keywords ***\n    Keyword\n        ${var} =  Other Keyword\n        No Operation\n\n    Keyword 2\n        No Operation\n        ${var}  ${var2}  Some Keyword  # this assignment doesn't use equal sign while the previous one uses ` =`\n\nBy default Robocop looks for most popular assignment sign in the file. It is possible to define expected \nassignment sign by running::\n\n    robocop --configure inconsistent-assignment:assignment_sign_type:equal_sign\n\nYou can choose between following signs: 'autodetect' (default), 'none' (''), 'equal_sign' ('=') or \nspace_and_equal_sign (' =').\n\n"
+                            }
+                        },
+                        {
+                            "id": "0910",
+                            "name": "inconsistent-assignment-in-variables",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#inconsistent-assignment-in-variables",
+                            "shortDescription": {
+                                "text": "The assignment sign is not consistent inside the variables section. Expected '{{ expected_sign }}' but got '{{ actual_sign }}' instead"
+                            },
+                            "fullDescription": {
+                                "text": "\nUse one type of assignment sign in Variables section. \n\nExample of rule violation::\n\n    *** Variables ***\n    ${var} =    1\n    ${var2}=    2\n    ${var3} =   3\n    ${var4}     a\n    ${var5}     b\n\nBy default Robocop looks for most popular assignment sign in the file. It is possible to define expected \nassignment sign by running::\n\n    robocop --configure inconsistent-assignment-in-variables:assignment_sign_type:equal_sign\n\nYou can choose between following signs: 'autodetect' (default), 'none' (''), 'equal_sign' ('=') or \nspace_and_equal_sign (' =').\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "\nUse one type of assignment sign in Variables section. \n\nExample of rule violation::\n\n    *** Variables ***\n    ${var} =    1\n    ${var2}=    2\n    ${var3} =   3\n    ${var4}     a\n    ${var5}     b\n\nBy default Robocop looks for most popular assignment sign in the file. It is possible to define expected \nassignment sign by running::\n\n    robocop --configure inconsistent-assignment-in-variables:assignment_sign_type:equal_sign\n\nYou can choose between following signs: 'autodetect' (default), 'none' (''), 'equal_sign' ('=') or \nspace_and_equal_sign (' =').\n\n",
+                                "markdown": "\nUse one type of assignment sign in Variables section. \n\nExample of rule violation::\n\n    *** Variables ***\n    ${var} =    1\n    ${var2}=    2\n    ${var3} =   3\n    ${var4}     a\n    ${var5}     b\n\nBy default Robocop looks for most popular assignment sign in the file. It is possible to define expected \nassignment sign by running::\n\n    robocop --configure inconsistent-assignment-in-variables:assignment_sign_type:equal_sign\n\nYou can choose between following signs: 'autodetect' (default), 'none' (''), 'equal_sign' ('=') or \nspace_and_equal_sign (' =').\n\n"
+                            }
+                        },
+                        {
+                            "id": "0911",
+                            "name": "wrong-import-order",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#wrong-import-order",
+                            "shortDescription": {
+                                "text": "BuiltIn library import '{{ builtin_import }}' should be placed before '{{ custom_import }}'"
+                            },
+                            "fullDescription": {
+                                "text": "\nExample of rule violation::\n\n    *** Settings ***\n    Library    Collections\n    Library    CustomLibrary\n    Library    OperatingSystem  # BuiltIn library defined after custom CustomLibrary\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "\nExample of rule violation::\n\n    *** Settings ***\n    Library    Collections\n    Library    CustomLibrary\n    Library    OperatingSystem  # BuiltIn library defined after custom CustomLibrary\n\n",
+                                "markdown": "\nExample of rule violation::\n\n    *** Settings ***\n    Library    Collections\n    Library    CustomLibrary\n    Library    OperatingSystem  # BuiltIn library defined after custom CustomLibrary\n\n"
+                            }
+                        },
+                        {
+                            "id": "0912",
+                            "name": "empty-variable",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#empty-variable",
+                            "shortDescription": {
+                                "text": "Use built-in variable {{ var_type }}{EMPTY} instead of leaving variable without value or using backslash"
+                            },
+                            "fullDescription": {
+                                "text": "\nExample of rule violation::\n\n    *** Variables ***\n    ${VAR_NO_VALUE}                   # missing value\n    ${VAR_WITH_EMPTY}       ${EMPTY}\n    @{MULTILINE_FIRST_EMPTY}\n    ...                               # missing value\n    ...  value\n    ${EMPTY_WITH_BACKSLASH}  \\        # used backslash\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "note"
+                            },
+                            "help": {
+                                "text": "\nExample of rule violation::\n\n    *** Variables ***\n    ${VAR_NO_VALUE}                   # missing value\n    ${VAR_WITH_EMPTY}       ${EMPTY}\n    @{MULTILINE_FIRST_EMPTY}\n    ...                               # missing value\n    ...  value\n    ${EMPTY_WITH_BACKSLASH}  \\        # used backslash\n\n",
+                                "markdown": "\nExample of rule violation::\n\n    *** Variables ***\n    ${VAR_NO_VALUE}                   # missing value\n    ${VAR_WITH_EMPTY}       ${EMPTY}\n    @{MULTILINE_FIRST_EMPTY}\n    ...                               # missing value\n    ...  value\n    ${EMPTY_WITH_BACKSLASH}  \\        # used backslash\n\n"
+                            }
+                        },
+                        {
+                            "id": "0913",
+                            "name": "can-be-resource-file",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#can-be-resource-file",
+                            "shortDescription": {
+                                "text": "No tests in '{{ file_name }}' file, consider renaming to '{{ file_name_stem }}.resource'"
+                            },
+                            "fullDescription": {
+                                "text": "\nIf the Robot file contains only keywords or variables it's a good practice to use `.resource` extension.\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "note"
+                            },
+                            "help": {
+                                "text": "\nIf the Robot file contains only keywords or variables it's a good practice to use `.resource` extension.\n",
+                                "markdown": "\nIf the Robot file contains only keywords or variables it's a good practice to use `.resource` extension.\n"
+                            }
+                        },
+                        {
+                            "id": "0914",
+                            "name": "if-can-be-merged",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#if-can-be-merged",
+                            "shortDescription": {
+                                "text": "IF statement can be merged with previous IF (defined in line {{ line }})"
+                            },
+                            "fullDescription": {
+                                "text": "\nIF statement follows another IF with identical conditions. It can be possibly merged into one.\n\nExample of rule violation::\n\n    IF  ${var} == 4\n        Keyword\n    END\n    # comments are ignored\n    IF  ${var}  == 4\n        Keyword 2\n    END\n\nIF statement is considered identical only if all branches have identical conditions. \n\nSimilar but not identical IF::\n\n    IF  ${variable}\n        Keyword\n    ELSE\n        Other Keyword\n    END\n    IF  ${variable}\n        Keyword\n    END\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "note"
+                            },
+                            "help": {
+                                "text": "\nIF statement follows another IF with identical conditions. It can be possibly merged into one.\n\nExample of rule violation::\n\n    IF  ${var} == 4\n        Keyword\n    END\n    # comments are ignored\n    IF  ${var}  == 4\n        Keyword 2\n    END\n\nIF statement is considered identical only if all branches have identical conditions. \n\nSimilar but not identical IF::\n\n    IF  ${variable}\n        Keyword\n    ELSE\n        Other Keyword\n    END\n    IF  ${variable}\n        Keyword\n    END\n\n",
+                                "markdown": "\nIF statement follows another IF with identical conditions. It can be possibly merged into one.\n\nExample of rule violation::\n\n    IF  ${var} == 4\n        Keyword\n    END\n    # comments are ignored\n    IF  ${var}  == 4\n        Keyword 2\n    END\n\nIF statement is considered identical only if all branches have identical conditions. \n\nSimilar but not identical IF::\n\n    IF  ${variable}\n        Keyword\n    ELSE\n        Other Keyword\n    END\n    IF  ${variable}\n        Keyword\n    END\n\n"
+                            }
+                        },
+                        {
+                            "id": "0915",
+                            "name": "statement-outside-loop",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#statement-outside-loop",
+                            "shortDescription": {
+                                "text": "{{ name }} {{ statement_type }} used outside a loop"
+                            },
+                            "fullDescription": {
+                                "text": "\nFollowing keywords and statements should only be used inside loop (``WHILE`` or ``FOR``):\n    - ``Exit For Loop``,\n    - ``Exit For Loop If``,\n    - ``Continue For Loop``,\n    - ``Continue For Loop If ``\n    - ``CONTINUE``,\n    - ``BREAK``\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "\nFollowing keywords and statements should only be used inside loop (``WHILE`` or ``FOR``):\n    - ``Exit For Loop``,\n    - ``Exit For Loop If``,\n    - ``Continue For Loop``,\n    - ``Continue For Loop If ``\n    - ``CONTINUE``,\n    - ``BREAK``\n\n",
+                                "markdown": "\nFollowing keywords and statements should only be used inside loop (``WHILE`` or ``FOR``):\n    - ``Exit For Loop``,\n    - ``Exit For Loop If``,\n    - ``Continue For Loop``,\n    - ``Continue For Loop If ``\n    - ``CONTINUE``,\n    - ``BREAK``\n\n"
+                            }
+                        },
+                        {
+                            "id": "0916",
+                            "name": "inline-if-can-be-used",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#inline-if-can-be-used",
+                            "shortDescription": {
+                                "text": "IF can be replaced with inline IF"
+                            },
+                            "fullDescription": {
+                                "text": "\nShort and simple IFs can be replaced with inline IF.\n\nFollowing IF::\n\n    IF    $condition\n        BREAK\n    END\n\ncan be replaced with::\n\n    IF    $condition    BREAK\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "note"
+                            },
+                            "help": {
+                                "text": "\nShort and simple IFs can be replaced with inline IF.\n\nFollowing IF::\n\n    IF    $condition\n        BREAK\n    END\n\ncan be replaced with::\n\n    IF    $condition    BREAK\n\n",
+                                "markdown": "\nShort and simple IFs can be replaced with inline IF.\n\nFollowing IF::\n\n    IF    $condition\n        BREAK\n    END\n\ncan be replaced with::\n\n    IF    $condition    BREAK\n\n"
+                            }
+                        },
+                        {
+                            "id": "1001",
+                            "name": "trailing-whitespace",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#trailing-whitespace",
+                            "shortDescription": {
+                                "text": "Trailing whitespace at the end of line"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "1002",
+                            "name": "missing-trailing-blank-line",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#missing-trailing-blank-line",
+                            "shortDescription": {
+                                "text": "Missing trailing blank line at the end of file"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "1003",
+                            "name": "empty-lines-between-sections",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#empty-lines-between-sections",
+                            "shortDescription": {
+                                "text": "Invalid number of empty lines between sections ({{ empty_lines }}/{{ allowed_empty_lines }})"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "1004",
+                            "name": "empty-lines-between-test-cases",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#empty-lines-between-test-cases",
+                            "shortDescription": {
+                                "text": "Invalid number of empty lines between test cases ({{ empty_lines }}/{{ allowed_empty_lines }})"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "1005",
+                            "name": "empty-lines-between-keywords",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#empty-lines-between-keywords",
+                            "shortDescription": {
+                                "text": "Invalid number of empty lines between keywords ({{ empty_lines }}/{{ allowed_empty_lines }})"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "1006",
+                            "name": "mixed-tabs-and-spaces",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#mixed-tabs-and-spaces",
+                            "shortDescription": {
+                                "text": "Inconsistent use of tabs and spaces in file"
+                            },
+                            "fullDescription": {
+                                "text": ""
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "",
+                                "markdown": ""
+                            }
+                        },
+                        {
+                            "id": "1007",
+                            "name": "uneven-indent",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#uneven-indent",
+                            "shortDescription": {
+                                "text": "Line is {{ over_or_under }}-indented"
+                            },
+                            "fullDescription": {
+                                "text": "\nReported when line does not follow indent from the current block. \nExample of rule violation::\n\n    Keyword With Over Indented Setting\n        [Documentation]  this is doc\n         [Arguments]  ${arg}  # over-indented\n           No Operation  # over-indented\n        Pass\n        No Operation\n        Fail\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "\nReported when line does not follow indent from the current block. \nExample of rule violation::\n\n    Keyword With Over Indented Setting\n        [Documentation]  this is doc\n         [Arguments]  ${arg}  # over-indented\n           No Operation  # over-indented\n        Pass\n        No Operation\n        Fail\n\n",
+                                "markdown": "\nReported when line does not follow indent from the current block. \nExample of rule violation::\n\n    Keyword With Over Indented Setting\n        [Documentation]  this is doc\n         [Arguments]  ${arg}  # over-indented\n           No Operation  # over-indented\n        Pass\n        No Operation\n        Fail\n\n"
+                            }
+                        },
+                        {
+                            "id": "1008",
+                            "name": "bad-indent",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#bad-indent",
+                            "shortDescription": {
+                                "text": "Indent expected"
+                            },
+                            "fullDescription": {
+                                "text": "\nExpecting indent. Example of rule violation::\n\n     FOR  ${elem}  IN  ${list}\n    Log  stuff  # content of FOR blocks should use bigger indentation than FOR header\n     END\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "\nExpecting indent. Example of rule violation::\n\n     FOR  ${elem}  IN  ${list}\n    Log  stuff  # content of FOR blocks should use bigger indentation than FOR header\n     END\n\n",
+                                "markdown": "\nExpecting indent. Example of rule violation::\n\n     FOR  ${elem}  IN  ${list}\n    Log  stuff  # content of FOR blocks should use bigger indentation than FOR header\n     END\n\n"
+                            }
+                        },
+                        {
+                            "id": "1009",
+                            "name": "empty-line-after-section",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#empty-line-after-section",
+                            "shortDescription": {
+                                "text": "Too many empty lines after '{{ section_name }}' section header ({{ empty_lines }}/{{ allowed_empty_lines }})"
+                            },
+                            "fullDescription": {
+                                "text": "\nEmpty lines after the section header are not allowed by default. Example of rule violation::\n\n     *** Test Cases ***\n\n     Resource  file.resource\n\nIt can be configured using `empty_lines` parameter.\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "\nEmpty lines after the section header are not allowed by default. Example of rule violation::\n\n     *** Test Cases ***\n\n     Resource  file.resource\n\nIt can be configured using `empty_lines` parameter.\n",
+                                "markdown": "\nEmpty lines after the section header are not allowed by default. Example of rule violation::\n\n     *** Test Cases ***\n\n     Resource  file.resource\n\nIt can be configured using `empty_lines` parameter.\n"
+                            }
+                        },
+                        {
+                            "id": "1010",
+                            "name": "too-many-trailing-blank-lines",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#too-many-trailing-blank-lines",
+                            "shortDescription": {
+                                "text": "Too many blank lines at the end of file"
+                            },
+                            "fullDescription": {
+                                "text": "There should be exactly one blank line at the end of the file"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "There should be exactly one blank line at the end of the file",
+                                "markdown": "There should be exactly one blank line at the end of the file"
+                            }
+                        },
+                        {
+                            "id": "1011",
+                            "name": "misaligned-continuation",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#misaligned-continuation",
+                            "shortDescription": {
+                                "text": "Continuation marker should be aligned with starting row"
+                            },
+                            "fullDescription": {
+                                "text": "\nExample of rule violation::\n\n        Default Tags       default tag 1    default tag 2    default tag 3\n    ...                default tag 4    default tag 5\n\n        *** Test Cases ***\n        Example\n            Do X    first argument    second argument    third argument\n          ...    fourth argument    fifth argument    sixth argument\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "\nExample of rule violation::\n\n        Default Tags       default tag 1    default tag 2    default tag 3\n    ...                default tag 4    default tag 5\n\n        *** Test Cases ***\n        Example\n            Do X    first argument    second argument    third argument\n          ...    fourth argument    fifth argument    sixth argument\n\n",
+                                "markdown": "\nExample of rule violation::\n\n        Default Tags       default tag 1    default tag 2    default tag 3\n    ...                default tag 4    default tag 5\n\n        *** Test Cases ***\n        Example\n            Do X    first argument    second argument    third argument\n          ...    fourth argument    fifth argument    sixth argument\n\n"
+                            }
+                        },
+                        {
+                            "id": "1012",
+                            "name": "consecutive-empty-lines",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#consecutive-empty-lines",
+                            "shortDescription": {
+                                "text": "Too many consecutive empty lines ({{ empty_lines }}/{{ allowed_empty_lines }})"
+                            },
+                            "fullDescription": {
+                                "text": "\nExample of rule violation::\n\n    Keyword\n        Step 1\n\n\n        Step 2\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "\nExample of rule violation::\n\n    Keyword\n        Step 1\n\n\n        Step 2\n\n",
+                                "markdown": "\nExample of rule violation::\n\n    Keyword\n        Step 1\n\n\n        Step 2\n\n"
+                            }
+                        },
+                        {
+                            "id": "1013",
+                            "name": "empty-lines-in-statement",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#empty-lines-in-statement",
+                            "shortDescription": {
+                                "text": "Multi-line statement with empty lines"
+                            },
+                            "fullDescription": {
+                                "text": "\nExample of rule violation::\n\n     Keyword\n     ...  1\n     # empty line in-between multiline statement\n     ...  2\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "\nExample of rule violation::\n\n     Keyword\n     ...  1\n     # empty line in-between multiline statement\n     ...  2\n\n",
+                                "markdown": "\nExample of rule violation::\n\n     Keyword\n     ...  1\n     # empty line in-between multiline statement\n     ...  2\n\n"
+                            }
+                        },
+                        {
+                            "id": "1014",
+                            "name": "variable-should-be-left-aligned",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#variable-should-be-left-aligned",
+                            "shortDescription": {
+                                "text": "Variable in Variable section should be left aligned"
+                            },
+                            "fullDescription": {
+                                "text": "\nExample of rule violation::\n\n    *** Variables ***\n     ${VAR}  1\n      ${VAR2}  2\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "\nExample of rule violation::\n\n    *** Variables ***\n     ${VAR}  1\n      ${VAR2}  2\n\n",
+                                "markdown": "\nExample of rule violation::\n\n    *** Variables ***\n     ${VAR}  1\n      ${VAR2}  2\n\n"
+                            }
+                        },
+                        {
+                            "id": "1015",
+                            "name": "misaligned-continuation-row",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#misaligned-continuation-row",
+                            "shortDescription": {
+                                "text": "Each next continuation line should be aligned with the previous one"
+                            },
+                            "fullDescription": {
+                                "text": "\nExample of rule violation::\n\n    *** Settings ***\n    Documentation      Here we have documentation for this suite.\n    ...                Documentation is often quite long.\n    ...\n    ...            It can also contain multiple paragraphs.  # misaligned\n\n    *** Test Cases ***\n    Test\n    [Tags]    you    probably    do    not    have    this    many\n    ...      tags    in    real    life  # misaligned\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "text": "\nExample of rule violation::\n\n    *** Settings ***\n    Documentation      Here we have documentation for this suite.\n    ...                Documentation is often quite long.\n    ...\n    ...            It can also contain multiple paragraphs.  # misaligned\n\n    *** Test Cases ***\n    Test\n    [Tags]    you    probably    do    not    have    this    many\n    ...      tags    in    real    life  # misaligned\n\n",
+                                "markdown": "\nExample of rule violation::\n\n    *** Settings ***\n    Documentation      Here we have documentation for this suite.\n    ...                Documentation is often quite long.\n    ...\n    ...            It can also contain multiple paragraphs.  # misaligned\n\n    *** Test Cases ***\n    Test\n    [Tags]    you    probably    do    not    have    this    many\n    ...      tags    in    real    life  # misaligned\n\n"
+                            }
+                        },
+                        {
+                            "id": "1016",
+                            "name": "suite-setting-should-be-left-aligned",
+                            "helpUri": "https://robocop.readthedocs.io/en/stable/rules.html#suite-setting-should-be-left-aligned",
+                            "shortDescription": {
+                                "text": "Setting in Settings section should be left aligned"
+                            },
+                            "fullDescription": {
+                                "text": "\nExample of rule violation::\n\n    *** Settings ***\n        Library  Collections\n        Resource  data.resource\n        Variables  vars.robot\n\n"
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "text": "\nExample of rule violation::\n\n    *** Settings ***\n        Library  Collections\n        Resource  data.resource\n        Variables  vars.robot\n\n",
+                                "markdown": "\nExample of rule violation::\n\n    *** Settings ***\n        Library  Collections\n        Resource  data.resource\n        Variables  vars.robot\n\n"
+                            }
+                        }
+                    ]
+                }
+            },
+            "automationDetails": {
+                "id": "robocop/"
+            },
+            "results": [
+                {
+                    "ruleId": "0302",
+                    "level": "warning",
+                    "message": {
+                        "text": "Keyword name 'Display game data info' does not follow case convention"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "resources/bdd-resources/gamectg-BDD.resource",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "startLine": 30,
+                                    "endLine": 30,
+                                    "startColumn": 1,
+                                    "endColumn": 1
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "0203",
+                    "level": "warning",
+                    "message": {
+                        "text": "Missing documentation in suite"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "resources/common/selenium-resources/displayinfo.resource",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "startLine": 1,
+                                    "endLine": 1,
+                                    "startColumn": 1,
+                                    "endColumn": 1
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "0911",
+                    "level": "warning",
+                    "message": {
+                        "text": "BuiltIn library import 'OperatingSystem' should be placed before 'SeleniumLibrary'"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "resources/common/selenium-resources/displayinfo.resource",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "startLine": 3,
+                                    "endLine": 3,
+                                    "startColumn": 1,
+                                    "endColumn": 1
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "0309",
+                    "level": "warning",
+                    "message": {
+                        "text": "Section variable '${cpt_pg_scre}' name should be uppercase"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "resources/common/selenium-resources/displayinfo.resource",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "startLine": 8,
+                                    "endLine": 8,
+                                    "startColumn": 1,
+                                    "endColumn": 1
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "0912",
+                    "level": "note",
+                    "message": {
+                        "text": "Use built-in variable ${EMPTY} instead of leaving variable without value or using backslash"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "resources/common/selenium-resources/displayinfo.resource",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "startLine": 8,
+                                    "endLine": 8,
+                                    "startColumn": 1,
+                                    "endColumn": 1
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "0201",
+                    "level": "warning",
+                    "message": {
+                        "text": "Missing documentation in 'Display game data info' keyword"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "resources/common/selenium-resources/displayinfo.resource",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "startLine": 12,
+                                    "endLine": 12,
+                                    "startColumn": 1,
+                                    "endColumn": 1
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "0302",
+                    "level": "warning",
+                    "message": {
+                        "text": "Keyword name 'Display game data info' does not follow case convention"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "resources/common/selenium-resources/displayinfo.resource",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "startLine": 12,
+                                    "endLine": 12,
+                                    "startColumn": 1,
+                                    "endColumn": 1
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "0501",
+                    "level": "warning",
+                    "message": {
+                        "text": "Keyword 'Generate Json File' is too long (47/40)"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "resources/transform-data/gamectg-transform.resource",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "startLine": 63,
+                                    "endLine": 63,
+                                    "startColumn": 1,
+                                    "endColumn": 1
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
